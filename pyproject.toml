@@ -10,13 +10,35 @@ authors = [
 
 ]
 
+keywords = ["maze", "generator", "algorithm", "pathfinding"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+
 dependencies = [
+    "flake8>=7.3.0",
+    "flake8-pyproject>=1.2.4",
+    "mypy>=2.3.1",
     "pydantic>=2.13.4",
     "pytest>=9.1.1",
 ]
 
+[project.optional-dependencies]
+dev = ["pytest", "mypy", "flake8", "flake8-pyproject"]
+
+[project.scripts]
+amazing = "amazing:main"
+
+[build-system]
+requires = ["uv_build >= 0.12.5, <0.13.0"]
+build-backend = "uv_build"
+
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.14"
 warn_return_any = true
 warn_unused_ignores = true
 ignore_missing_imports = true
