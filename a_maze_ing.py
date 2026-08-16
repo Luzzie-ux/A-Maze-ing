@@ -58,16 +58,17 @@ def parser(filename: str) -> MazeConfig:
 def main() -> None:
     if len(sys.argv) != MAX_ARGS:
         sys.stderr.write(f"Usage: {python_version()} \n")
-        sys.exit(1)
+        return
     try:
         config = parser(sys.argv[1])
         maze = MazeGenerator(config)
         print(maze.grid)
+    except ValidationError as e:
+        error = e.errors()[0]["msg"]
+        msg: str = error.removeprefix("Value error, ")
+        sys.stderr.write(f"{msg}\n")
     except (FileNotFoundError, SyntaxError, ValueError) as e:
         sys.stderr.write(f"{e.__class__.__name__}: {e}\n")
-        sys.exit(1)
-    except ValidationError as err:
-        sys.stderr.write(f"{err}\n")
 
 
 if __name__ == "__main__":

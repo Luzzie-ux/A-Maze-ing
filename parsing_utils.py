@@ -47,16 +47,16 @@ def check_entry(entry_point: str) -> tuple[int, int]:
 def check_exit(exit_point: str) -> tuple[int, int]:
     err: str
     if "," not in exit_point:
-        err = "Entry must be in format x,y"
+        err = "EXIT must be in format x,y"
         raise ValueError(err)
     x, y = exit_point.split(",")
     try:
         out: tuple[int, int] = (int(x), int(y))
     except ValueError as e:
-        err = f"ENTRY must be an integer, got: {exit_point}"
+        err = f"EXIT must be an integer, got: {exit_point}"
         raise ValueError(err) from e
     if out[0] < 0 or out[1] < 0:
-        out_of_bounds: str = "Entry out of bounds"
+        out_of_bounds: str = "EXIT out of bounds"
         raise ValueError(out_of_bounds)
     return out
 
