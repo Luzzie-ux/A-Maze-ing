@@ -23,9 +23,7 @@ lint:
 
 lint-strict:
 	flake8 . --exclude=lib
-	mypy . --exclude lib --warn-return-any --warn-unused-ignores \
-	--ignore-missing-imports --disallow-untyped-defs \
-	--check-untyped-defs --strict
+	mypy . --exclude=lib --strict
 
 clean:
 	rm -rf __pycache__ .mypy_cache .ruff_cache

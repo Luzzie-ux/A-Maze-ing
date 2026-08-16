@@ -1,5 +1,3 @@
-def main():
-    print("Hello from mazegen")
+from .maze_generator import MazeGenerator
 
-if __name__ == "__main__":
-    main()
+__all__: list[str] = ["MazeGenerator"]

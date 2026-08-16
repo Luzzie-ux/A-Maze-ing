@@ -44,7 +44,68 @@ warn_unused_ignores = true
 ignore_missing_imports = true
 disallow_untyped_defs = true
 check_untyped_defs = true
+strict = true
+exclude = [
+    ".venv/",
+    ".git/",
+    "build/",
+    "dist/",
+    "__pycache__/",
+    ".ruff_cache"
+]
 
 [tool.flake8]
 max-line-length = 100
-exclude = [".git", "__pycache__", "build", "dist"]
+extend-exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".mypy_cache",
+    ".ruff_cache",
+    "build",
+    "dist",
+]
+count = true
+statistics = true
+show-source = true
+
+[tool.ruff]
+indent-width = 4
+line-length = 100
+respect-gitignore = true
+target-version = "py314"
+extend-exclude = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".mypy_cache",
+    ".ruff_cache",
+    "build",
+    "dist",
+]
+show-fixes = true
+output-format = "grouped"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-format = false
+
+[tool.ruff.lint]
+preview = true
+extend-select = [
+    "E",
+    "W",
+    "F",
+    "I",
+    "N",
+    "B",
+    "C90",
+]
+ignore = ["T20", "RUF"]
+fixable = ["ALL"]
+unfixable = ["T20"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
