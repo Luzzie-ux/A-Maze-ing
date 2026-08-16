@@ -9,7 +9,7 @@ class MazeConfig(BaseModel):
     entry: tuple[int, int] = Field(min_length=2, max_length=2)
     exit: tuple[int, int] = Field(min_length=2, max_length=2)
     output_file: str = Field(default="maze.txt")
-    perfect: bool = Field(default=False)
+    perfect: bool
     seed: int | None = Field(default=42)
     algorithm: str | None = Field(default="bfs")
     display: str | None = Field(default="mlx")

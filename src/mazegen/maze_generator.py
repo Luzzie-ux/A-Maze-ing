@@ -14,6 +14,16 @@ class MazeGenerator:
         self.create_grid()
 
     def create_grid(self) -> None:
-        for _i in range(self.height):
-            row: list = [0b1111 for _ in range(self.width)]
+        ex, ey = self.config.entry
+        sx, sy = self.config.exit
+        for i in range(self.height):
+            row: list = []
+            for j in range(self.width):
+                if i == ey and j == ex:
+                    row.append(0b0000)
+                    continue
+                if i == sy and j == sx:
+                    row.append(0b0000)
+                    continue
+                row.append(0b1111)
             self.grid.append(row)
