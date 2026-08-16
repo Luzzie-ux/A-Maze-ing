@@ -23,7 +23,8 @@ KEYS: list[str] = [
 def parser(filename: str) -> MazeConfig:
     file = Path(filename)
     if not file.exists():
-        raise FileNotFoundError
+        fnf: str = "File Not Found"
+        raise FileNotFoundError(fnf)
 
     raw: dict[str, str] = {}
 
@@ -32,7 +33,8 @@ def parser(filename: str) -> MazeConfig:
         if content.startswith("#"):
             continue
         if "=" not in content:
-            raise SyntaxError
+            serr: str = "Invalid Syntax"
+            raise SyntaxError(serr)
 
         key, value = content.split("=", 1)
         key = key.strip().upper()
