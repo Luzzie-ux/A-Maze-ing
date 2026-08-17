@@ -69,7 +69,7 @@ def main() -> None:
         msg: str = error.removeprefix("Value error, ")
         sys.stderr.write(f"{msg}\n")
     except (FileNotFoundError, SyntaxError, ValueError) as e:
-        sys.stderr.write(f"{e.__class__.__name__}: {e}\n")
+        sys.stderr.write(f"Error: {e}\n")
 
 
 if __name__ == "__main__":

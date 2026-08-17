@@ -9,9 +9,10 @@ def check_width(width: str) -> int:
     try:
         w = int(width)
     except ValueError as e:
-        raise ValueError(str(e)) from e
+        err = f"WIDTH must be an integer, got: {width}"
+        raise ValueError(err) from e
     if w <= 0:
-        zero: str = "WIDTH must be > than 0"
+        zero: str = "WIDTH must be greater than 0"
         raise ValueError(zero)
     return w
 
@@ -20,9 +21,10 @@ def check_height(height: str) -> int:
     try:
         h = int(height)
     except ValueError as e:
-        raise ValueError(str(e)) from e
+        err = f"HEIGHT must be an integer, got: {height}"
+        raise ValueError(err) from e
     if h <= 0:
-        zero: str = "HEIGHT must be > than 0"
+        zero: str = "HEIGHT must be greater than 0"
         raise ValueError(zero)
     return h
 
@@ -38,8 +40,8 @@ def check_entry(entry_point: str) -> tuple[int, int]:
     except ValueError as e:
         err = f"ENTRY must be an integer, got: {entry_point}"
         raise ValueError(err) from e
-    if entry[0] < 0 or entry[1] < 0:
-        out_of_bounds: str = "Entry out of bounds"
+    if entry[0] <= 0 or entry[1] <= 0:
+        out_of_bounds: str = f"Entry ({x},{y}) out of bounds"
         raise ValueError(out_of_bounds)
     return entry
 
@@ -55,8 +57,8 @@ def check_exit(exit_point: str) -> tuple[int, int]:
     except ValueError as e:
         err = f"EXIT must be an integer, got: {exit_point}"
         raise ValueError(err) from e
-    if out[0] < 0 or out[1] < 0:
-        out_of_bounds: str = "EXIT out of bounds"
+    if out[0] <= 0 or out[1] <= 0:
+        out_of_bounds: str = f"EXIT ({x},{y}) out of bounds"
         raise ValueError(out_of_bounds)
     return out
 
@@ -80,9 +82,10 @@ def check_seed(seed: str) -> int:
     try:
         sed = int(seed)
     except ValueError as e:
-        raise ValueError(str(e)) from e
+        err: str = f"SEED must be an integer, got: {seed}"
+        raise ValueError(err) from e
     if sed <= 0:
-        zero: str = "SEED must be > than 0"
+        zero: str = "SEED must be greater than 0"
         raise ValueError(zero)
     return sed
 

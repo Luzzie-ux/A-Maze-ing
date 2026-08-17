@@ -11,9 +11,9 @@ class MazeGenerator:
         self.height = config.height
         self.grid: list[list[int]] = []
 
-        self.create_grid()
+        self._create_grid()
 
-    def create_grid(self) -> None:
+    def _create_grid(self) -> None:
         ex, ey = self.config.entry
         sx, sy = self.config.exit
         for i in range(self.height):
@@ -27,3 +27,5 @@ class MazeGenerator:
                     continue
                 row.append(0b1111)
             self.grid.append(row)
+
+    def _carve_maze(self) -> None: ...

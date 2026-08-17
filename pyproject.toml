@@ -69,6 +69,7 @@ count = true
 statistics = true
 show-source = true
 
+# Rodrigo
 [tool.ruff]
 indent-width = 4
 line-length = 79

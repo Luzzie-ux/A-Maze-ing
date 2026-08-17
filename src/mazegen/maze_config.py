@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field, model_validator
 
 
 class MazeConfig(BaseModel):
-    width: int = Field(g=0, le=100)
+    width: int = Field(gt=0, le=100)
     height: int = Field(gt=0, le=100)
     entry: tuple[int, int] = Field(min_length=2, max_length=2)
     exit: tuple[int, int] = Field(min_length=2, max_length=2)
