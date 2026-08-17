@@ -2,12 +2,12 @@
 import sys
 from pathlib import Path
 from platform import python_version
+from typing import Any
 
 from pydantic import ValidationError
 
+from mazegen import MazeConfig, MazeGenerator
 from parsing_utils import checker
-from src.mazegen.maze_config import MazeConfig
-from src.mazegen.maze_generator import MazeGenerator
 
 MAX_ARGS: int = 2
 KEYS: list[str] = [
@@ -45,7 +45,7 @@ def parser(filename: str) -> MazeConfig:
             missing: str = f"Missing: {key}"
             raise ValueError(missing)
 
-    config: dict = {}
+    config: dict[str, Any] = {}
     for k, v in raw.items():
         try:
             f = checker[k]

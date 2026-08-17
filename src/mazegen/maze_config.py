@@ -15,7 +15,7 @@ class MazeConfig(BaseModel):
     display: str | None = Field(default="mlx")
 
     @model_validator(mode="after")
-    def validate(self) -> Self:
+    def validate_config(self) -> Self:
         ex, ey = self.entry
         enerr: str = f"Exit (X={ex}, Y={ey}) must be smaller than"
         if ex > self.width:

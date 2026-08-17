@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
     from collections.abc import Callable
@@ -100,7 +100,7 @@ def check_display(display: str) -> str:
     return display
 
 
-checker: dict[str, Callable] = {
+checker: dict[str, Callable[[str], Any]] = {
     "WIDTH": check_width,
     "HEIGHT": check_height,
     "ENTRY": check_entry,
