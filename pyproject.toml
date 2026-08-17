@@ -3,7 +3,7 @@ name = "mazegen"
 version = "0.1.0"
 description = "A reusable maze generation library with multiple algorithms"
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 authors = [
     {name = "Neuza Nascimento", email = "nedo-nas@student.42porto.com"},
 	{name = "Rodrigo Pereira", email = "rodrpere@student.42porto.com"}
