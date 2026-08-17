@@ -63,7 +63,7 @@ def main() -> None:
         config = parser(sys.argv[1])
         maze = MazeGenerator(config)
         for row in maze.grid:
-            print(row)
+            sys.stdout.write(f"{row}\n")
     except ValidationError as e:
         error = e.errors()[0]["msg"]
         msg: str = error.removeprefix("Value error, ")
