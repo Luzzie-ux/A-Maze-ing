@@ -1,3 +1,4 @@
+import secrets
 from typing import Self
 
 from pydantic import BaseModel, Field, model_validator
@@ -10,7 +11,7 @@ class MazeConfig(BaseModel):
     exit: tuple[int, int] = Field(min_length=2, max_length=2)
     output_file: str = Field(default="maze.txt")
     perfect: bool
-    seed: int | None = Field(default=42)
+    seed: int | None = Field(default=secrets.randbits(32))
     algorithm: str | None = Field(default="bfs")
     display: str | None = Field(default="mlx")
 

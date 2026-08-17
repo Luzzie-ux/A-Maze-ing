@@ -27,10 +27,10 @@ class MazeGenerator:
             row: list[int] = []
             for j in range(self.width):
                 if i == ey and j == ex:
-                    row.append(0b010)
+                    row.append(0b0010)
                     continue
                 if i == sy and j == sx:
-                    row.append(0b010)
+                    row.append(0b0010)
                     continue
                 if cy in {i, j} or cx in {j, i}:
                     row.append(0b0001)
