@@ -100,6 +100,7 @@ extend-select = [
     "C90",
     "C4",
 ]
+
 ignore = [
     "T20",
     "RUF100",
@@ -107,7 +108,9 @@ ignore = [
     "D",
     "DOC",
     "CPY",
+    "COM812",
 ]
+
 fixable = ["ALL"]
 unfixable = []
 
